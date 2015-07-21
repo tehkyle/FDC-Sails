@@ -1,23 +1,8 @@
-/**
- * importer.less
- *
- * By default, new Sails projects are configured to compile this file
- * from LESS to CSS.  Unlike CSS files, LESS files are not compiled and
- * included automatically unless they are imported below.
- *
- * The LESS files imported below are compiled and included in the order
- * they are listed.  Mixins, variables, etc. should be imported first
- * so that they can be accessed by subsequent LESS stylesheets.
- *
- * (Just like the rest of the asset pipeline bundled in Sails, you can
- * always omit, customize, or replace this behavior with SASS, SCSS,
- * or any other Grunt tasks you like.)
- */
-html,
-body {
-  height: 100%;
-  margin: 0;
+html, body {
+	height: 100%;
+	margin: 0;
 }
+
 .loginMain {
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -28,6 +13,7 @@ body {
   min-height: 100%;
   min-width: 100%;
 }
+
 .copyrightfooter {
   width: 200px;
   height: 20px;
@@ -38,18 +24,20 @@ body {
   margin-top: -20px;
   margin-left: -100px;
 }
+
 .errorMsg {
   width: inherit;
 }
+
 .loginForm {
-  position: fixed;
-  /* or absolute */
+  position: fixed; /* or absolute */
   top: 50%;
   left: 50%;
   margin-top: -120px;
   margin-left: -100px;
   text-align: center;
 }
+
 .loginInputText {
   width: 200px;
   height: 30px;
@@ -57,10 +45,12 @@ body {
   background-color: LightCyan;
   color: Black;
 }
+
 /*@keyframes submitButtonOver {
     from {background-color: inherit;}
     to {background-color: LightCyan;}
 }*/
+
 .loginInputButton {
   width: 100px;
   height: 30px;
@@ -73,6 +63,7 @@ body {
   transition: .5s;
   border-radius: 25px;
 }
+
 .loginInputButton:hover {
   /*animation-name: submitButtonOver;
   animation-duration: .5s;
@@ -83,6 +74,7 @@ body {
   border-radius: 5px;
   transition: .5s;
 }
+
 .loginItem {
   padding: 2px;
   text-align: center;
