@@ -1,14 +1,7 @@
 {
   "data": {
     "sunlight": [],
-    "player": [
-      {
-        "name": "Kyle",
-        "createdAt": "2015-07-08T07:50:01.938Z",
-        "updatedAt": "2015-07-08T07:52:14.123Z",
-        "id": 1
-      }
-    ],
+    "league": [],
     "passport": [
       {
         "protocol": "local",
@@ -20,15 +13,27 @@
         "id": 1
       }
     ],
+    "player": [
+      {
+        "name": "Kyle",
+        "createdAt": "2015-07-08T07:50:01.938Z",
+        "updatedAt": "2015-07-08T07:52:14.123Z",
+        "id": 1
+      }
+    ],
+    "team": [],
     "user": [
       {
         "username": "kyle",
         "email": "tehkyle@gmail.com",
+        "id": 1,
         "createdAt": "2015-07-08T21:32:52.062Z",
-        "updatedAt": "2015-07-08T21:32:52.062Z",
-        "id": 1
+        "updatedAt": "2015-07-08T21:32:52.062Z"
       }
-    ]
+    ],
+    "league_teams__team_league": [],
+    "player_teams__team_players": [],
+    "team_owner__user_teams": []
   },
   "schema": {
     "sunlight": {
@@ -45,18 +50,17 @@
         "type": "datetime"
       }
     },
-    "player": {
-      "name": {
-        "type": "string"
-      },
-      "email": {
-        "type": "string"
-      },
+    "league": {
       "id": {
         "type": "integer",
-        "autoIncrement": true,
-        "primaryKey": true,
-        "unique": true
+        "unique": true,
+        "primaryKey": true
+      },
+      "leaguename": {
+        "type": "string"
+      },
+      "manager": {
+        "type": "string"
       },
       "createdAt": {
         "type": "datetime"
@@ -103,6 +107,51 @@
         "type": "datetime"
       }
     },
+    "player": {
+      "id": {
+        "type": "integer",
+        "unique": true,
+        "primaryKey": true
+      },
+      "teamname": {
+        "type": "string"
+      },
+      "score": {
+        "type": "string"
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "team": {
+      "id": {
+        "type": "integer",
+        "unique": true,
+        "primaryKey": true
+      },
+      "teamname": {
+        "type": "string"
+      },
+      "owner": {
+        "type": "string",
+        "unique": false
+      },
+      "league": {
+        "type": "string"
+      },
+      "division": {
+        "type": "string"
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
     "user": {
       "username": {
         "type": "string",
@@ -124,6 +173,72 @@
       "updatedAt": {
         "type": "datetime"
       }
+    },
+    "league_teams__team_league": {
+      "id": {
+        "primaryKey": true,
+        "unique": true,
+        "autoIncrement": true,
+        "type": "integer"
+      },
+      "league_teams": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "league",
+        "on": "id",
+        "via": "team_league"
+      },
+      "team_league": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "team",
+        "on": "id",
+        "via": "league_teams"
+      }
+    },
+    "player_teams__team_players": {
+      "id": {
+        "primaryKey": true,
+        "unique": true,
+        "autoIncrement": true,
+        "type": "integer"
+      },
+      "player_teams": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "player",
+        "on": "id",
+        "via": "team_players"
+      },
+      "team_players": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "team",
+        "on": "id",
+        "via": "player_teams"
+      }
+    },
+    "team_owner__user_teams": {
+      "id": {
+        "primaryKey": true,
+        "unique": true,
+        "autoIncrement": true,
+        "type": "integer"
+      },
+      "user_teams": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "user",
+        "on": "id",
+        "via": "team_owner"
+      },
+      "team_owner": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "team",
+        "on": "id",
+        "via": "user_teams"
+      }
     }
   },
   "counters": {
@@ -136,6 +251,11 @@
     },
     "passport": {
       "id": 1
-    }
+    },
+    "league": {},
+    "team": {},
+    "league_teams__team_league": {},
+    "player_teams__team_players": {},
+    "team_owner__user_teams": {}
   }
 }
