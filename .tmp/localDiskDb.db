@@ -1,0 +1,141 @@
+{
+  "data": {
+    "sunlight": [],
+    "player": [
+      {
+        "name": "Kyle",
+        "createdAt": "2015-07-08T07:50:01.938Z",
+        "updatedAt": "2015-07-08T07:52:14.123Z",
+        "id": 1
+      }
+    ],
+    "passport": [
+      {
+        "protocol": "local",
+        "password": "$2a$10$Xl96YpQTl0m0c0/Cfdics.pv3j/Tju9VuDFI9f/hK.xJBC3slL/.2",
+        "user": 1,
+        "accessToken": "6XOqNgRskFsbqbBwXGlq98QuytkCdMGkCphb9pLF0RskuCv1uk/pnSqS/VVCpUGW",
+        "createdAt": "2015-07-08T21:32:52.282Z",
+        "updatedAt": "2015-07-08T21:32:52.282Z",
+        "id": 1
+      }
+    ],
+    "user": [
+      {
+        "username": "kyle",
+        "email": "tehkyle@gmail.com",
+        "createdAt": "2015-07-08T21:32:52.062Z",
+        "updatedAt": "2015-07-08T21:32:52.062Z",
+        "id": 1
+      }
+    ]
+  },
+  "schema": {
+    "sunlight": {
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "player": {
+      "name": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "passport": {
+      "protocol": {
+        "type": "string"
+      },
+      "password": {
+        "type": "string"
+      },
+      "accessToken": {
+        "type": "string"
+      },
+      "provider": {
+        "type": "string"
+      },
+      "identifier": {
+        "type": "string"
+      },
+      "tokens": {
+        "type": "json"
+      },
+      "user": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "user"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "user": {
+      "username": {
+        "type": "string",
+        "unique": true
+      },
+      "email": {
+        "type": "string",
+        "unique": true
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "player": {
+      "id": 1
+    },
+    "sunlight": {},
+    "user": {
+      "id": 1
+    },
+    "passport": {
+      "id": 1
+    }
+  }
+}
